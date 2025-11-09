@@ -18,8 +18,7 @@ func _physics_process(_delta: float) -> void:
 			move_up()
 		npc_states.MOVEDOWN:
 			move_down()
-	
-	
+
 	move_and_slide()
 
 func random_generation():
@@ -40,11 +39,11 @@ func random_direction():
 
 func move_right():
 	velocity = Vector2.RIGHT * speed
-	$anim.play("idle_right")
+	$anim.play("walk_right")
 	
 func move_left():
 	velocity = Vector2.LEFT * speed
-	$anim.play("idle_left")
+	$anim.play("walk_left")
 
 func move_down():
 	velocity = Vector2.DOWN * speed

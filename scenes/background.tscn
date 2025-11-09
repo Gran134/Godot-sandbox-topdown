@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://p10h1x5o41qs" path="res://tilesets/water_animation.png" id="4_wax1t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wisxt"]
-radius = 7.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_frxq8"]
 texture = ExtResource("1_6vk4b")
@@ -60,14 +59,16 @@ size = Vector2(2163, 136)
 y_sort_enabled = true
 
 [node name="player" type="CharacterBody2D" parent="."]
-top_level = true
-light_mask = 2
-visibility_layer = 2
+show_behind_parent = true
+light_mask = 3
+visibility_layer = 3
 z_index = 1
 y_sort_enabled = true
-position = Vector2(283, 169)
+position = Vector2(350, 240)
+disable_mode = 1
 collision_layer = 2
 collision_mask = 2
+safe_margin = 0.001
 script = ExtResource("2_5kaef")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -78,8 +79,6 @@ limit_right = 1932
 limit_bottom = 1053
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-light_mask = 2
-visibility_layer = 2
 shape = SubResource("CircleShape2D_wisxt")
 
 [node name="Tiles" type="Node" parent="."]
@@ -103,36 +102,36 @@ tile_set = SubResource("TileSet_2rgq4")
 top_level = true
 z_index = 2
 y_sort_enabled = true
-position = Vector2(202, 141)
+position = Vector2(306, 218)
 
 [node name="camera_stopper" type="Area2D" parent="."]
-light_mask = 2
-visibility_layer = 2
+light_mask = 3
+visibility_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera_stopper"]
 top_level = true
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-274, 221.75)
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-269, 234)
 shape = SubResource("RectangleShape2D_wisxt")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="camera_stopper"]
 top_level = true
-light_mask = 2
-visibility_layer = 2
+light_mask = 3
+visibility_layer = 3
 position = Vector2(1770, 221.75)
 shape = SubResource("RectangleShape2D_wisxt")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="camera_stopper"]
 top_level = true
-light_mask = 2
-visibility_layer = 2
+light_mask = 3
+visibility_layer = 3
 position = Vector2(751.5, 895)
 shape = SubResource("RectangleShape2D_wax1t")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="camera_stopper"]
 top_level = true
-light_mask = 2
-visibility_layer = 2
+light_mask = 3
+visibility_layer = 3
 position = Vector2(751.5, -446)
 shape = SubResource("RectangleShape2D_wax1t")
