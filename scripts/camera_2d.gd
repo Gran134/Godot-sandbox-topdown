@@ -4,12 +4,22 @@ extends Camera2D
 @export var zoom_speed: float = 0.1
 @export var min_zoom: float = 1.0
 @export var max_zoom: float = 3.0
+@export var left_limit := -430
+@export var right_limit := 1930
+
+func _ready():
+	limit_left = left_limit
+	right_limit = limit_right
 
 func _process(delta: float) -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_upp", "move_down")
 	
+	if global_position.x <= limit_left:
+		print("YIPPIE")
+	
 	var zoom_factor := zoom.x
 	global_position += input_dir * move_speed * zoom_factor * delta
+
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# Handle Mouse Zoom

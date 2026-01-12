@@ -60,10 +60,10 @@ y_sort_enabled = true
 z_index = 20
 position = Vector2(350, 240)
 zoom = Vector2(3, 3)
-limit_left = -424
-limit_top = -605
+limit_left = -430
+limit_top = -606
 limit_right = 1932
-limit_bottom = 1053
+limit_bottom = 1052
 script = ExtResource("2_wax1t")
 
 [node name="Tiles" type="Node" parent="."]
