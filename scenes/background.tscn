@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://vqehe0g14yb5"]
+[gd_scene load_steps=12 format=4 uid="uid://vqehe0g14yb5"]
 
 [ext_resource type="Texture2D" uid="uid://ddehywsbohvnm" path="res://tilesets/grass.png" id="1_6vk4b"]
 [ext_resource type="Script" uid="uid://cfnpeh6ufbkw" path="res://scripts/camera_2d.gd" id="2_wax1t"]
@@ -47,12 +47,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_cyluv")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wisxt"]
-size = Vector2(117, 1480.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wax1t"]
-size = Vector2(2163, 136)
-
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 
@@ -63,7 +57,7 @@ zoom = Vector2(3, 3)
 limit_left = -430
 limit_top = -606
 limit_right = 1932
-limit_bottom = 1052
+limit_bottom = 1055
 script = ExtResource("2_wax1t")
 
 [node name="Tiles" type="Node" parent="."]
@@ -88,35 +82,3 @@ top_level = true
 z_index = 2
 y_sort_enabled = true
 position = Vector2(306, 218)
-
-[node name="camera_stopper" type="Area2D" parent="."]
-light_mask = 3
-visibility_layer = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="camera_stopper"]
-top_level = true
-light_mask = 3
-visibility_layer = 3
-position = Vector2(-269, 234)
-shape = SubResource("RectangleShape2D_wisxt")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="camera_stopper"]
-top_level = true
-light_mask = 3
-visibility_layer = 3
-position = Vector2(1770, 221.75)
-shape = SubResource("RectangleShape2D_wisxt")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="camera_stopper"]
-top_level = true
-light_mask = 3
-visibility_layer = 3
-position = Vector2(751.5, 895)
-shape = SubResource("RectangleShape2D_wax1t")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="camera_stopper"]
-top_level = true
-light_mask = 3
-visibility_layer = 3
-position = Vector2(751.5, -446)
-shape = SubResource("RectangleShape2D_wax1t")

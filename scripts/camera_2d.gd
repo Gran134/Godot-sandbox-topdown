@@ -6,16 +6,30 @@ extends Camera2D
 @export var max_zoom: float = 3.0
 @export var left_limit := -430
 @export var right_limit := 1930
+@export var top_limit := -600
+@export var bottom_limit := 1050
+
+var center_of_screan: Vector2
 
 func _ready():
+	center_of_screan = get_viewport_rect().size / 2.0
+	
 	limit_left = left_limit
 	right_limit = limit_right
+	top_limit = limit_top
+	bottom_limit = limit_bottom
 
 func _process(delta: float) -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_upp", "move_down")
 	
-	if global_position.x <= limit_left:
-		print("YIPPIE")
+	if global_position.x <= (limit_left + center_of_screan.x):
+		print(left_limit + center_of_screan.x)
+	elif global_position.x >= limit_right:
+		print("YIPPIE2")
+	elif global_position.y <= limit_top:
+		print(top_limit + (center_of_screan.y / 2))
+	elif global_position.y >= limit_bottom:
+		print()
 	
 	var zoom_factor := zoom.x
 	global_position += input_dir * move_speed * zoom_factor * delta
