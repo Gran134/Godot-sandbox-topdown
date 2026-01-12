@@ -39,16 +39,20 @@ func random_direction():
 
 func move_right():
 	velocity = Vector2.RIGHT * speed
-	$anim.play("walk_right")
+	if $anim.animation != "walk_right":
+		$anim.play("walk_right")
 	
 func move_left():
 	velocity = Vector2.LEFT * speed
-	$anim.play("walk_left")
+	if $anim.animation != "walk_left":
+		$anim.play("walk_left")
 
 func move_down():
 	velocity = Vector2.DOWN * speed
-	$anim.play("idle_down")
+	if $anim.animation != "walk_down":
+		$anim.play("walk_down")
 
 func move_up():
 	velocity = Vector2.UP * speed
-	$anim.play("idle_up")
+	if $anim.animation != "idle_up":
+		$anim.play("idle_up")

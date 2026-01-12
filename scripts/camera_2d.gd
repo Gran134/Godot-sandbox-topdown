@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var move_speed: float = 100.0
+@export var move_speed: float = 300.0
 @export var zoom_speed: float = 0.1
 @export var min_zoom: float = 1.0
 @export var max_zoom: float = 3.0
@@ -22,19 +22,21 @@ func _ready():
 func _process(delta: float) -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_upp", "move_down")
 	
-	if global_position.x <= (limit_left + center_of_screan.x):
-		print(left_limit + center_of_screan.x)
-	elif global_position.x >= limit_right:
-		print("YIPPIE2")
-	elif global_position.y <= limit_top:
-		print(top_limit + (center_of_screan.y / 2))
-	elif global_position.y >= limit_bottom:
-		print()
-	
-	var zoom_factor := zoom.x
+	var zoom_factor := 1.0 / zoom.x
 	global_position += input_dir * move_speed * zoom_factor * delta
 
-	
+	global_position.x = clamp(
+		global_position.x,
+		limit_left + center_of_screan.x,
+		limit_right - center_of_screan.x
+	)
+
+	global_position.y = clamp(
+		global_position.y,
+		limit_top + center_of_screan.y,
+		limit_bottom - center_of_screan.y
+	)
+
 func _unhandled_input(event: InputEvent) -> void:
 	# Handle Mouse Zoom
 	if event is InputEventMouseButton:
