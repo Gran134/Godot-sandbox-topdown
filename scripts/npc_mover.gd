@@ -54,5 +54,5 @@ func move_down():
 
 func move_up():
 	velocity = Vector2.UP * speed
-	if $anim.animation != "idle_up":
-		$anim.play("idle_up")
+	if $anim.animation != "walk_up":
+		$anim.play("walk_up")
