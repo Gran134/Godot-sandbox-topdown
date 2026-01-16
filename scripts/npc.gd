@@ -1,8 +1,8 @@
 extends npc_mevement
 
 func _ready():
+	randomize()
 	random_generation()
 	
-func _on_timer_timeout() -> void:
+func _on_timer_timeout():
 	random_generation()
-	$Timer.start()

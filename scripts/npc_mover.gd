@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name npc_mevement
 
-var current_states
+var current_states: npc_states = npc_states.MOVERIGHT
 enum npc_states{MOVERIGHT, MOVELEFT, MOVEUP, MOVEDOWN}
 
 @export var speed = 10
@@ -18,7 +18,6 @@ func _physics_process(_delta: float) -> void:
 			move_up()
 		npc_states.MOVEDOWN:
 			move_down()
-
 	move_and_slide()
 
 func random_generation():
@@ -39,25 +38,33 @@ func random_direction():
 
 func move_right():
 	velocity = Vector2.RIGHT * speed
-	if $anim.animation != "walk_right" && velocity.x != 0:
+	if $anim.animation != "walk_right" && !is_on_wall():
 		$anim.play("walk_right")
-	elif velocity.x == 0:
+	if is_on_wall():
+		velocity = Vector2.ZERO
 		$anim.play("idle_right")
 	
 	
 func move_left():
 	velocity = Vector2.LEFT * speed
-	if $anim.animation != "walk_left" && velocity.x != 0:
+	if $anim.animation != "walk_left" && !is_on_wall():
 		$anim.play("walk_left")
-	elif velocity.x == 0:
+	if is_on_wall():
+		velocity = Vector2.ZERO
 		$anim.play("idle_left")
 
 func move_down():
 	velocity = Vector2.DOWN * speed
-	if $anim.animation != "walk_down" && velocity.y != 0:
+	if $anim.animation != "walk_down" && !is_on_wall():
 		$anim.play("walk_down")
+	if is_on_wall():
+		velocity = Vector2.ZERO
+		$anim.play("idle_down")
 
 func move_up():
 	velocity = Vector2.UP * speed
-	if $anim.animation != "walk_up" && velocity.y != 0:
+	if $anim.animation != "walk_up" && !is_on_wall():
 		$anim.play("walk_up")
+	if is_on_wall():
+		velocity = Vector2.ZERO
+		$anim.play("idle_up")
