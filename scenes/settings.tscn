@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqyo6p5b3s4jg"]
+
+[ext_resource type="Script" uid="uid://bvi2g7gxiacxy" path="res://scripts/settings.gd" id="1_5p8wc"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5p8wc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 543.0
+offset_top = 88.0
+offset_right = -546.0
+offset_bottom = -533.0
+text = "Settings"
+horizontal_alignment = 3
+vertical_alignment = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0050000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 575.76
+offset_top = 512.0
+offset_right = -537.0
+offset_bottom = -105.0
+text = "Back"
+
+[connection signal="button_down" from="Button" to="." method="back"]

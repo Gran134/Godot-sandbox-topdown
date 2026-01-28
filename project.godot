@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="my sandbox"
-run/main_scene="res://scenes/background.tscn"
+run/main_scene="uid://gugj8rg7bh6w"
 config/features=PackedStringArray("4.5", "Forward Plus")
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 
