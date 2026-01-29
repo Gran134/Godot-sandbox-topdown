@@ -14,6 +14,10 @@ config/name="my sandbox"
 run/main_scene="uid://gugj8rg7bh6w"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
+[autoload]
+
+Global="*res://scripts/global.gd"
+
 [display]
 
 window/stretch/mode="viewport"

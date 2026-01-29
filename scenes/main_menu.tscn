@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://gugj8rg7bh6w"]
 
-[ext_resource type="Script" uid="uid://calp87kk12mmr" path="res://scripts/mane_menu.gd" id="1_deho8"]
+[ext_resource type="Script" uid="uid://calp87kk12mmr" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,7 +13,7 @@ offset_right = 1.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_deho8")
+script = ExtResource("1_l6cm7")
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 1
