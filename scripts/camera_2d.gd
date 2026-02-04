@@ -36,6 +36,13 @@ func _process(delta: float) -> void:
 		limit_top + center_of_screan.y,
 		limit_bottom - center_of_screan.y
 	)
+	
+	if get_tree().current_scene.scene_file_path == "res://scenes/background.tscn":
+		Global.where_am_i = "res://scenes/background.tscn"
+	print(Global.where_am_i)
+	
+	if Input.is_action_just_pressed("Open settings"):
+		get_tree().change_scene_to_file("res://scenes/settings.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Handle Mouse Zoom
